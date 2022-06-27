@@ -1,0 +1,85 @@
+-
+  name: "ta1"
+  pddl_type: 1
+  params: 
+    - "robot"
+-
+  name: "pipe_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "equip_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "toolchange_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "charge_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "fuselage_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "seat_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "recharging_station"
+  pddl_type: 2 
+  params: 
+    - "charge_wp"
+-
+  name: "tool_changing_station"
+  pddl_type: 2 
+  params: 
+    - "toolchange_wp"
+-
+  name: "in"
+  pddl_type: 2 
+  params: 
+    - "ta1"
+    - "equip_wp"
+-
+  name: "tool_mounted"
+  pddl_type: 2 
+  params: 
+    - "ta1"
+    - "no_tool"
+-
+  name: "payload_in"
+  pddl_type: 2 
+  params: 
+    - "seat1"
+    - "seat_wp"
+-
+  name: "tool_required"
+  pddl_type: 2 
+  params: 
+    - "seat1"
+    - "tool1"
+-
+  name: "workfree"
+  pddl_type: 2 
+  params: 
+    - "ta1"
+-
+  name: "free"
+  pddl_type: 2 
+  params: 
+    - "ta1"
+-
+  name: "battery_charge"
+  pddl_type: 3
+  params: 
+    - "ta1"
+  value:  90

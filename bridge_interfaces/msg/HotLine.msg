@@ -1,0 +1,2 @@
+string emergency_content
+string affected_system
