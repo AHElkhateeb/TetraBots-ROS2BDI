@@ -18,7 +18,7 @@
         (tool_changing_station ?wp - waypoint)
         (free ?r - robot)
         (workfree ?r - robot)
-        (full_recharged ?r - robot)
+        (fully_recharged ?r - robot)
     )
 
     (:functions
@@ -27,7 +27,7 @@
 
     (:durative-action moveto
         :parameters (?r - robot ?wp_from ?wp_to - waypoint)
-        :duration (= ?duration 4)
+        :duration (= ?duration 15)
         :condition (and
             (at start (in ?r ?wp_from))
             (at start (workfree ?r))
@@ -38,13 +38,13 @@
             (at start (not(in ?r ?wp_from)))
             (at end (in ?r ?wp_to))
             (at end (workfree ?r))
-            (at end (decrease (battery_charge ?r) 10))
+            (at end (decrease (battery_charge ?r) 5))
         )
     )
 
     (:durative-action charge
         :parameters (?r - robot ?wp - waypoint)
-        :duration (= ?duration 4)
+        :duration (= ?duration 30)
         :condition (and
             (at start (workfree ?r))
             (over all (in ?r ?wp))
@@ -53,14 +53,14 @@
         :effect (and
             (at start (not(workfree ?r)))
             (at end (workfree ?r))
-            (at end (full_recharged ?r))
+            (at end (fully_recharged ?r))
             (at end (assign (battery_charge ?r) 100))
         )
     )
 
     (:durative-action pickup
         :parameters (?r - robot ?wp - waypoint ?p - payload ?t - tool)
-        :duration (= ?duration 4)
+        :duration (= ?duration 5)
         :condition (and
             (at start (workfree ?r))
             (at start (payload_in ?p ?wp))
@@ -68,7 +68,7 @@
             (over all (tool_required ?p ?t))
             (over all (tool_mounted ?r ?t))
             (over all (in ?r ?wp))
-            (over all (> (battery_charge ?r) 30))
+            (over all (> (battery_charge ?r) 10))
         )
         :effect (and
             (at start (not(workfree ?r)))
@@ -81,12 +81,12 @@
 
     (:durative-action drop
         :parameters (?r - robot ?wp - waypoint ?p - payload)
-        :duration (= ?duration 4)
+        :duration (= ?duration 5)
         :condition (and
             (at start (workfree ?r))
             (at start (holding ?r ?p))
             (over all (in ?r ?wp))
-            (over all (> (battery_charge ?r) 30))
+            (over all (> (battery_charge ?r) 10))
         )
         :effect (and
             (at start (not(workfree ?r)))
@@ -99,12 +99,13 @@
 
     (:durative-action change_tool
         :parameters (?r - robot ?wp - waypoint ?t1 - tool ?t2 - tool)
-        :duration (= ?duration 4)
+        :duration (= ?duration 10)
         :condition (and
             (at start (workfree ?r))
+            (at start (tool_mounted ?r ?t1))                               ; Is it necessary?
             (over all (in ?r ?wp))
             (over all (tool_changing_station ?wp))
-            (over all (> (battery_charge ?r) 30))
+            (over all (> (battery_charge ?r) 10))
         )
         :effect (and
             (at start (not(workfree ?r)))

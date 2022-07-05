@@ -8,7 +8,7 @@ from bdi_agent_skills import AgentAction
 from bdi_agent_skills import AgentSensor
 
 def generate_launch_description():
-    AGENT_ID = 'ta1'
+    AGENT_ID = 'TA1'
     AGENT_GROUP_ID = 'transporting_agents'
 
     airbus_demo_share_dir = get_package_share_directory('airbus_demo')

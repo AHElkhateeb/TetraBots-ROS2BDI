@@ -7,17 +7,17 @@
               name: "battery_charge"
               pddl_type: 3
               params:
-                - "ta1"
+                - "TA1"
               value: 100
 
   reactive_rules:
     - set: belief
       operation: DEL
       value:
-        name: "full_recharged"
+        name: "fully_recharged"
         pddl_type: 2 
         params: 
-          - "ta1"
+          - "TA1"
 - 
   condition:
     clauses:
@@ -27,8 +27,8 @@
               name: "battery_charge"
               pddl_type: 3
               params:
-                - "ta1"
-              value: 40
+                - "TA1"
+              value: 30
 
   reactive_rules:
     - set: desire
@@ -36,9 +36,9 @@
       value:
         name: "go_recharge"
         priority: 0.8
-        deadline: 16.0
+        deadline: 50.0
         value:
-          - name: "full_recharged"
+          - name: "fully_recharged"
             pddl_type: 2 
             params: 
-              - "ta1"
+              - "TA1"

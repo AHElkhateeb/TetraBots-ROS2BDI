@@ -1,5 +1,5 @@
 -
-  name: "ta1"
+  name: "TA1"
   pddl_type: 1
   params: 
     - "robot"
@@ -34,6 +34,221 @@
   params: 
     - "waypoint"
 -
+  name: "01_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "02_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "03_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "04_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "05_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "10_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "11_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "12_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "13_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "14_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "15_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "16_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "21_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "22_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "23_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "24_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "25_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "26_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "30_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "31_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "32_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "33_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "34_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "35_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "40_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "41_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "42_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "43_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "44_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "45_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "46_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "50_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "51_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "52_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "53_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "54_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "55_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "56_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "61_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "62_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "63_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "64_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "65_wp"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
   name: "recharging_station"
   pddl_type: 2 
   params: 
@@ -44,42 +259,48 @@
   params: 
     - "toolchange_wp"
 -
+  name: "tool_required"
+  pddl_type: 2 
+  params: 
+    - "seat"
+    - "seat_tool"
+-
+  name: "tool_required"
+  pddl_type: 2 
+  params: 
+    - "pipe"
+    - "pipe_tool"
+-
   name: "in"
   pddl_type: 2 
   params: 
-    - "ta1"
-    - "equip_wp"
+    - "TA1"
+    - "54_wp"
 -
   name: "tool_mounted"
   pddl_type: 2 
   params: 
-    - "ta1"
+    - "TA1"
     - "no_tool"
 -
   name: "payload_in"
   pddl_type: 2 
   params: 
-    - "seat1"
+    - "seat"
     - "seat_wp"
--
-  name: "tool_required"
-  pddl_type: 2 
-  params: 
-    - "seat1"
-    - "tool1"
 -
   name: "workfree"
   pddl_type: 2 
   params: 
-    - "ta1"
+    - "TA1"
 -
   name: "free"
   pddl_type: 2 
   params: 
-    - "ta1"
+    - "TA1"
 -
   name: "battery_charge"
   pddl_type: 3
   params: 
-    - "ta1"
-  value:  90
+    - "TA1"
+  value:  98

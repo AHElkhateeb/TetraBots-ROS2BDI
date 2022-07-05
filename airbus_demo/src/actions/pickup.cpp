@@ -11,7 +11,7 @@ class PickUp : public BDIActionExecutor
         float advanceWork()
         {
             //should implement here the step logic for your action, returning a value in [0-1] which specify the step progress
-            return 0.0625f;            
+            return 0.05f;            
         }
 
     private:

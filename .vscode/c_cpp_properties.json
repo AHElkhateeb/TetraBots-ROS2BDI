@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "linux-gcc-x64",
+            "includePath": [
+              "${workspaceFolder}/**",
+              "/opt/ros/foxy/include/**",
+              "~/agent_communication_ws/install/**",
+              "~/plansys2_ws/install/**",
+              "/opt/ros/foxy/include"
+            ],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "${default}",
+            "cppStandard": "${default}",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}
