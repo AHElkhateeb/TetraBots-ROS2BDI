@@ -1,0 +1,9 @@
+string command_name
+string command_wait_mode
+string bots_affected
+string[] command_identifier
+float32[] command_values
+string[] command_strings
+string coord_name
+float32[] coord_values
+bool report_goal_reached
