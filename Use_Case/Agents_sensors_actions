@@ -1,0 +1,34 @@
+Auctioneer_agent
+	askForTransportation
+
+Transport_agent
+	moveTo 	15s
+	pickup 	5s
+	drop 		5s
+	changeTool 	10s
+	charge 	30s
+
+Payloads
+	Pipe: 
+		3-robot task
+		Pipe-tool required
+	Seat: 
+		2-robot task
+		Seat-tool required
+	Equipment: 
+		1-robot task
+		no tool required
+
+Cost Calculation
+	
+	init Distance = 0
+	init Toolchange = 0
+	init Battery = 0
+	
+	Distance_to_payload = sqrt((x1-x2)^2+(y1-y2)^2)
+	
+	if (!ToolMounted): Toolchange = Distance_to_Toolchange_wp + 10 + Distance_from_Toolchange_wp_to_payload
+	
+	if (Battery < 30): Battery = Distance_to_Charge_wp + 30 + Distance_from_Charge_wp_to_payload
+	
+	Cost = Distance + Toolchange + Battery
