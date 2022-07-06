@@ -26,6 +26,9 @@ set(msg_files
    "msg/HotLine.msg"
    "msg/StillAlive.msg"
    "msg/T265PosAndOri.msg"
+   "msg/TeamCommand.msg"
+   "msg/JobDefinition.msg"
+   "msg/TeamDefinition.msg"
 )
 
 rosidl_generate_interfaces(${PROJECT_NAME}

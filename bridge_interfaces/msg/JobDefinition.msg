@@ -12,7 +12,7 @@ string payload
 
 #definition of the Bot Team
 string team_definition_name
-teamDefinition team
+TeamDefinition team
 
 #start location name and coordinates
 string start_location_name
