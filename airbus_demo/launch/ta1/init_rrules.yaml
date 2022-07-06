@@ -7,7 +7,7 @@
               name: "battery_charge"
               pddl_type: 3
               params:
-                - "TA1"
+                - "ta1"
               value: 100
 
   reactive_rules:
@@ -17,7 +17,7 @@
         name: "fully_recharged"
         pddl_type: 2 
         params: 
-          - "TA1"
+          - "ta1"
 - 
   condition:
     clauses:
@@ -27,7 +27,7 @@
               name: "battery_charge"
               pddl_type: 3
               params:
-                - "TA1"
+                - "ta1"
               value: 30
 
   reactive_rules:
@@ -41,4 +41,4 @@
           - name: "fully_recharged"
             pddl_type: 2 
             params: 
-              - "TA1"
+              - "ta1"

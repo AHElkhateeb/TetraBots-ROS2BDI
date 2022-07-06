@@ -18,5 +18,5 @@
       name: "in"
       pddl_type: 2
       params:
-        - "TA1"
+        - "ta1"
         - "charge_wp"

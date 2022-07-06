@@ -1,5 +1,5 @@
 -
-  name: "TA1"
+  name: "ta1"
   pddl_type: 1
   params: 
     - "robot"
@@ -274,13 +274,13 @@
   name: "in"
   pddl_type: 2 
   params: 
-    - "TA1"
+    - "ta1"
     - "54_wp"
 -
   name: "tool_mounted"
   pddl_type: 2 
   params: 
-    - "TA1"
+    - "ta1"
     - "no_tool"
 -
   name: "payload_in"
@@ -292,15 +292,15 @@
   name: "workfree"
   pddl_type: 2 
   params: 
-    - "TA1"
+    - "ta1"
 -
   name: "free"
   pddl_type: 2 
   params: 
-    - "TA1"
+    - "ta1"
 -
   name: "battery_charge"
   pddl_type: 3
   params: 
-    - "TA1"
+    - "ta1"
   value:  98
