@@ -1,14 +1,14 @@
 -
   name: "move_seat"
   priority: 0.5
-  deadline: 70.0
+  deadline: 270.0
   value:
     -
       name: "payload_in"
       pddl_type: 2
       params:
         - "seat"
-        - "fuselage_wp"
+        - "wp_equip"
 -
   name: "stay_at_chargewp"
   priority: 0.2
@@ -19,4 +19,4 @@
       pddl_type: 2
       params:
         - "ta1"
-        - "charge_wp"
+        - "wp_charge"
