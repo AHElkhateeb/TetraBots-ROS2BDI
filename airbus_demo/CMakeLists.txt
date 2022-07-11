@@ -38,19 +38,19 @@ set(sensors_dep
   ros2_bdi_core
 )
 
-add_executable(moveto src/actions/moveto.cpp)
+add_executable(moveto src/transporting_agent/actions/moveto.cpp)
 ament_target_dependencies(moveto ${bdi_act_client_dep})
 
-add_executable(charge src/actions/charge.cpp)
+add_executable(charge src/transporting_agent/actions/charge.cpp)
 ament_target_dependencies(charge ${bdi_act_client_dep})
 
-add_executable(pickup src/actions/pickup.cpp)
+add_executable(pickup src/transporting_agent/actions/pickup.cpp)
 ament_target_dependencies(pickup ${bdi_act_client_dep})
 
-add_executable(drop src/actions/drop.cpp)
+add_executable(drop src/transporting_agent/actions/drop.cpp)
 ament_target_dependencies(drop ${bdi_act_client_dep})
 
-add_executable(change_tool src/actions/change_tool.cpp)
+add_executable(change_tool src/transporting_agent/actions/change_tool.cpp)
 ament_target_dependencies(change_tool ${bdi_act_client_dep})
 
 install(TARGETS
