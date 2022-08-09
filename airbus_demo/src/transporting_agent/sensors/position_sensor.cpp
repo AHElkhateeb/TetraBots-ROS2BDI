@@ -35,7 +35,7 @@ class TransportingAgentWPSensor : public Sensor
             current_wp_.pddl_type = proto_belief.pddl_type;
             current_wp_.params = proto_belief.params;
             current_wp_.params[0] = robot_name_;
-            current_wp_.params[1] = "charge_wp";
+            current_wp_.params[1] = "wp_charge";
         }
         
     private:
@@ -48,18 +48,18 @@ class TransportingAgentWPSensor : public Sensor
 
             string raw_wp = "wp_" + to_string((int)x) + to_string((int)y) ;
 
-            if(raw_wp == "00_wp")
-            	raw_wp = "equip_wp";
-            else if(raw_wp == "06_wp")
-            	raw_wp = "pipe_wp";
-            else if(raw_wp == "20_wp")
-            	raw_wp = "charge_wp";
-            else if(raw_wp == "36_wp")
-            	raw_wp = "toolchange_wp";
-            else if(raw_wp == "60_wp")
-            	raw_wp = "seat_wp";
-            else if(raw_wp == "66_wp")
-            	raw_wp = "fuselage_wp";
+            if(raw_wp == "wp_00")
+            	raw_wp = "wp_equip";
+            else if(raw_wp == "wp_06")
+            	raw_wp = "wp_pipe";
+            else if(raw_wp == "wp_20")
+            	raw_wp = "wp_charge";
+            else if(raw_wp == "wp_36")
+            	raw_wp = "wp_toolchange";
+            else if(raw_wp == "wp_60")
+            	raw_wp = "wp_seat";
+            else if(raw_wp == "wp_66")
+            	raw_wp = "wp_fuselage";
 
             sense(current_wp_, DEL);
             current_wp_.params[1] = raw_wp;
