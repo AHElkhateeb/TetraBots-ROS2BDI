@@ -1,0 +1,48 @@
+sn
+source ~/ros1_msgs_ws/install_isolated/setup.bash 
+sf
+source ~/tetrabot_ws/install/local_setup.bash
+source ~/bridge_ws/install/local_setup.bash 
+export ROS_MASTER_URI=http://192.168.188.34:11311
+ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
+
+
+sf
+source ~/tetrabot_ws/install/local_setup.bash
+ros2 topic pub /ttb/tetrabotCENTER/ext/teamCommand bridge_interfaces/msg/TeamCommand "command_name: 'Drive_to'
+command_wait_mode: ''
+bots_affected: 'tetrabotC3PO'
+command_identifier: ['Ros2-BDI']
+command_values: [200, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.60, 0.20, 10.0, 1.0, 50.0, 1.0, 45.0]
+command_strings: ['ON', 'NO_STOP', 'NO_ABORT_STOP']
+coord_name: ''
+coord_values: []
+report_goal_reached: false
+" -1
+
+
+sn
+source ~/ros1_msgs_ws/install_isolated/setup.bash
+export ROS_MASTER_URI=http://192.168.188.34:11311
+rostopic pub /ttb/tetrabotCENTER/ext/teamCommand tetrabot/teamCommand "commandName: 'Drive_to'
+commandWaitMode: ''
+botsAffected: 'tetrabotC3PO'
+commandIdentifier: ['Ros1-BDI']
+commandValues: [200, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.60, 0.20, 10.0, 1.0, 50.0, 1.0, 45.0]
+commandStrings: ['ON', 'NO_STOP', 'NO_ABORT_STOP']
+coordName: ''
+coordValues: [0]
+reportGoalReached: false"
+
+
+
+colcon build --packages-select ros1_bridge --cmake-force-configure
+
+
+
+source /opt/ros/noetic/setup.bash
+source ~/ros2_foxy/install/local_setup.bash
+source ~/ros1_msgs_ws_1/devel/setup.bash
+source ~/tetrabot_ws/install/local_setup.bash
+colcon build --symlink-install --packages-select ros1_bridge --cmake-force-configure
+

@@ -46,7 +46,7 @@ class TransportingAgentWPSensor : public Sensor
             float x = position_status_.cor_pos_ori[0];
             float y = position_status_.cor_pos_ori[1];
 
-            string raw_wp = to_string((int)x) + to_string((int)y) + "_wp";
+            string raw_wp = "wp_" + to_string((int)x) + to_string((int)y) ;
 
             if(raw_wp == "00_wp")
             	raw_wp = "equip_wp";

@@ -1,75 +1,96 @@
-- ros1_package_name: "tetrabot"
-  ros1_message_name: "t265PosAndOri"
-  ros2_package_name: "bridge_interfaces"
-  ros2_message_name: "T265PosAndOri"
+- 
+  ros1_package_name: 'tetrabot'
+  ros1_message_name: 't265PosAndOri'
+  ros2_package_name: 'bridge_interfaces'
+  ros2_message_name: 'T265PosAndOri'
   fields_1_to_2:
-    header: "header"
-    returnStatus: "return_status"
-    raw_pos_ori: "raw_pos_ori"
-    cor_pos_ori: "cor_pos_ori"
-    velocity: "velocity"
-    acceleration: "acceleration"
+    header: 'header'
+    returnStatus: 'return_status'
+    raw_pos_ori: 'raw_pos_ori'
+    cor_pos_ori: 'cor_pos_ori'
+    velocity: 'velocity'
+    acceleration: 'acceleration'
     
-- ros1_package_name: "tetrabot"
-  ros1_message_name: "botStatus"
-  ros2_package_name: "bridge_interfaces"
-  ros2_message_name: "BotStatus"
+- 
+  ros1_package_name: 'tetrabot'
+  ros1_message_name: 'botStatus'
+  ros2_package_name: 'bridge_interfaces'
+  ros2_message_name: 'BotStatus'
   fields_1_to_2:
-    botID: "bot_id"
-    botStatus: "bot_status"
-    botName: "bot_name"
-    botAkkuStatus: "bot_akku_status"
-    botAttachedToolID: "bot_attached_tool_id"
-    botAttachedToolName: "bot_attached_tool_name"
-    botActualJobID: "bot_actual_job_id"
-    botNextPlannedJobID: "bot_next_planned_job_id"
-    botActualRole: "bot_actual_role"
-    botActualteam_leader: "bot_actual_team_leader"
-    botPositionOrientation: "bot_position_orientation"
+    botID: 'bot_id'
+    botStatus: 'bot_status'
+    botName: 'bot_name'
+    botAkkuStatus: 'bot_akku_status'
+    botAttachedToolID: 'bot_attached_tool_id'
+    botAttachedToolName: 'bot_attached_tool_name'
+    botActualJobID: 'bot_actual_job_id'
+    botNextPlannedJobID: 'bot_next_planned_job_id'
+    botActualRole: 'bot_actual_role'
+    botActualteam_leader: 'bot_actual_team_leader'
+    botPositionOrientation: 'bot_position_orientation'
 
-- ros1_package_name: "tetrabot"
-  ros1_message_name: "stillAlive"
-  ros2_package_name: "bridge_interfaces"
-  ros2_message_name: "StillAlive"
+- 
+  ros1_package_name: 'tetrabot'
+  ros1_message_name: 'stillAlive'
+  ros2_package_name: 'bridge_interfaces'
+  ros2_message_name: 'StillAlive'
   fields_1_to_2:
-    botID: "bot_id"
+    botID: 'bot_id'
 
-- ros1_package_name: "tetrabot"
-  ros1_message_name: "hotLine"
-  ros2_package_name: "bridge_interfaces"
-  ros2_message_name: "HotLine"
+- 
+  ros1_package_name: 'tetrabot'
+  ros1_message_name: 'hotLine'
+  ros2_package_name: 'bridge_interfaces'
+  ros2_message_name: 'HotLine'
   fields_1_to_2:
-    emergencyContent: "emergency_content"
-    affectedSystem: "affected_system"
+    emergencyContent: 'emergency_content'
+    affectedSystem: 'affected_system'
 
-- ros1_package_name: "tetrabot"
-  ros1_message_name: "teamCommand"
-  ros2_package_name: "bridge_interfaces"
-  ros2_message_name: "TeamCommand"
+- 
+  ros1_package_name: 'tetrabot'
+  ros1_message_name: 'teamCommand'
+  ros2_package_name: 'bridge_interfaces'
+  ros2_message_name: 'TeamCommand'
   fields_1_to_2:
-    commandName: "command_name"
-    commandWaitMode: "command_wait_mode"
-    botsAffected: "bots_affected"
-    commandIdentifier: "command_identifier"
-    commandValues: "command_values"
-    commandStrings: "command_strings"
-    coordName: "coord_name"
-    coordValues: "coord_values"
-    reportGoalReached: "report_goal_reached"
+    commandName: 'command_name'
+    commandWaitMode: 'command_wait_mode'
+    botsAffected: 'bots_affected'
+    commandIdentifier: 'command_identifier'
+    commandValues: 'command_values'
+    commandStrings: 'command_strings'
+    coordName: 'coord_name'
+    coordValues: 'coord_values'
+    reportGoalReached: 'report_goal_reached'
 
-- ros1_package_name: "tetrabot"
-  ros1_message_name: "jobDefinition"
-  ros2_package_name: "bridge_interfaces"
-  ros2_message_name: "JobDefinition"
+-
+  ros1_package_name: 'tetrabot'
+  ros1_message_name: 'teamDefinition'
+  ros2_package_name: 'bridge_interfaces'
+  ros2_message_name: 'TeamDefinition'
   fields_1_to_2:
-    jobID: "job_id"
-    status: "status"
-    jobName: "job_name"
-    payload: "payload"
-    teamDefinitionName: "team_definition_name"
-    team: "team"
-    startLocationName: "start_location_name"
-    startLocation: "start_location"
-    destinationLocationName: "destination_location_name"
-    destinationLocation: "destination_location"
-    way_points: "way_points"
+    numberOfBots: 'number_of_bots'
+    payloadInitial: 'payload_initial'
+    genericBotName: 'generic_bot_name'
+    botRole: 'bot_role'
+    requiredTool: 'required_tool'
+    dockingRelPos: 'docking_rel_pos'
+    preDockingDist: 'pre_docking_dist'
+    prePosDist: 'pre_pos_dist'
+
+- 
+  ros1_package_name: 'tetrabot'
+  ros1_message_name: 'jobDefinition'
+  ros2_package_name: 'bridge_interfaces'
+  ros2_message_name: 'JobDefinition'
+  fields_1_to_2:
+    jobID: 'job_id'
+    status: 'status'
+    jobName: 'job_name'
+    payload: 'payload'
+    teamDefinitionName: 'team_definition_name'
+    team: 'team'
+    startLocationName: 'start_location_name'
+    startLocation: 'start_location'
+    destinationLocationName: 'destination_location_name'
+    destinationLocation: 'destination_location'
+    way_points: 'way_points'
