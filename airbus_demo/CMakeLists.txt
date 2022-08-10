@@ -17,6 +17,7 @@ find_package(ros2_bdi_utils REQUIRED)
 find_package(ros2_bdi_interfaces REQUIRED)
 find_package(ros2_bdi_skills REQUIRED)
 find_package(ros2_bdi_core REQUIRED)
+find_package(bridge_interfaces REQUIRED)
 
 
 set(bdi_act_client_dep
@@ -36,8 +37,11 @@ set(sensors_dep
   ros2_bdi_utils
   ros2_bdi_skills
   ros2_bdi_core
+  bridge_interfaces
 )
 
+#Transporting Agent
+#Actions
 add_executable(moveto src/transporting_agent/actions/moveto.cpp)
 ament_target_dependencies(moveto ${bdi_act_client_dep})
 
@@ -53,12 +57,40 @@ ament_target_dependencies(drop ${bdi_act_client_dep})
 add_executable(change_tool src/transporting_agent/actions/change_tool.cpp)
 ament_target_dependencies(change_tool ${bdi_act_client_dep})
 
+#Sensors
+add_executable(battery_sensor src/transporting_agent/sensors/battery_sensor.cpp)
+ament_target_dependencies(battery_sensor ${sensors_dep})
+
+add_executable(position_sensor src/transporting_agent/sensors/position_sensor.cpp)
+ament_target_dependencies(position_sensor ${sensors_dep})
+
+add_executable(tool_sensor src/transporting_agent/sensors/tool_sensor.cpp)
+ament_target_dependencies(tool_sensor ${sensors_dep})
+
+#Organizing Agent
+#Actions
+add_executable(ask_for_transportation src/organizing_agent/actions/ask_for_transportation.cpp)
+ament_target_dependencies(ask_for_transportation ${bdi_act_client_dep})
+  
+#Sensors
+add_executable(payload_in_sensor src/organizing_agent/sensors/payload_in_sensor.cpp)
+ament_target_dependencies(payload_in_sensor ${sensors_dep})
+
+add_executable(payload_should_be_in_sensor src/organizing_agent/sensors/payload_should_be_in_sensor.cpp)
+ament_target_dependencies(payload_should_be_in_sensor ${sensors_dep})
+
 install(TARGETS
   moveto
   charge
   pickup
   drop
   change_tool
+  battery_sensor
+  position_sensor
+  tool_sensor
+  ask_for_transportation
+  payload_in_sensor
+  payload_should_be_in_sensor
   DESTINATION lib/${PROJECT_NAME}
 )
 

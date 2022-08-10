@@ -48,6 +48,27 @@ def generate_launch_description():
         name='change_tool'
     )
 
+    # sense battery_sensor
+    battery_sensor = AgentSensor(
+        package='airbus_demo',
+        executable='battery_sensor',
+        name='battery_sensor'
+    )
+
+    # sense position_sensor
+    position_sensor = AgentSensor(
+        package='airbus_demo',
+        executable='position_sensor',
+        name='position_sensor'
+    )
+
+    # sense tool_sensor
+    tool_sensor = AgentSensor(
+        package='airbus_demo',
+        executable='tool_sensor',
+        name='tool_sensor'
+    )
+
     ld = AgentLaunchDescription(
         agent_id=AGENT_ID,
         agent_group=AGENT_GROUP_ID,
@@ -59,7 +80,7 @@ def generate_launch_description():
             'debug_log_active': ['belief_manager', 'scheduler', 'plan_director']
         },
         actions=[moveto, charge, pickup, drop, change_tool],
-        sensors=[],
+        sensors=[battery_sensor, position_sensor, tool_sensor],
         run_only_psys2=False
     ) 
 

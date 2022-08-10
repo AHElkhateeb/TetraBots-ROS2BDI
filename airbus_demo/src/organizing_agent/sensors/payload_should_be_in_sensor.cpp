@@ -66,7 +66,7 @@ class PayloadShouldBeInSensor : public Sensor
             payload_belief.params[0] = new_payload_.payload;
             payload_belief.params[1] = new_payload_.destination_location_name;
             payload_belief.params[2] = new_payload_.team.required_tool[0];
-            payload_belief.params[3] = new_payload_.team.number_of_bots;
+            payload_belief.params[3] = new_payload_.team.number_of_bots;       //TO-DO: I expect an error here because passing an int to a string but it compiles fine for now
             sense(payload_belief, ADD);      
         }
 
