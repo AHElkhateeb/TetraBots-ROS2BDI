@@ -1,0 +1,70 @@
+# - 
+#   condition:
+#     clauses:
+#       - literals:
+#           - check: "T"
+#             condition_to_check:
+#               name: "payload_in"
+#               pddl_type: 2
+#               params:
+#                 - "{p_x}"
+#                 - "{wp_y}"
+              
+#           - check: "T"
+#             condition_to_check:
+#               name: "payload_should_be_in"
+#               pddl_type: 2
+#               params:
+#                 - "{p_x}"
+#                 - "{t_x}"
+#                 - "{wp_y}"
+              
+
+#   reactive_rules:
+#     - set: belief
+#       operation: DEL
+#       value:
+#         name: "payload_should_be_in"
+#         pddl_type: 2
+#         params:
+#           - "{p_x}"
+#           - "{t_x}"
+#           - "{wp_y}"
+- 
+  condition:
+    clauses:
+      - literals:
+          - check: "F"
+            condition_to_check:
+              name: "payload_in"
+              pddl_type: 2
+              params:
+                - "{p_x}"
+                - "{wp_y}"
+              
+          - check: "T"
+            condition_to_check:
+              name: "payload_should_be_in"
+              pddl_type: 2
+              params:
+                - "{p_x}"
+                - "{wp_y}"
+                - "{t_x}"
+                - "{num_bots}"
+              
+
+  reactive_rules:
+    - set: desire
+      operation: ADD
+      value:
+        name: "transport_payload"
+        priority: 0.8
+        deadline: 50.0
+        value:
+          - name: "move_payload_to"
+            pddl_type: 2
+            params: 
+              - "{p_x}"
+              - "{wp_y}"
+              - "{t_x}"
+              - "{num_bots}"

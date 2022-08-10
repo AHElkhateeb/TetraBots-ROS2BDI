@@ -27,7 +27,7 @@ class PayloadSensor : public Sensor
             robot_name_ = this->get_parameter("agent_id").as_string();
 
             OA_payload_subscriber_ = this->create_subscription<JobDefinition>("/ttb/central/transportJob", 
-                rclcpp::QoS(5).best_effort(),
+                rclcpp::QoS(5).reliable(),
                 std::bind(&PayloadSensor::jobReceivedCallback, this, _1));
             
             payload_belief = Belief();
@@ -43,11 +43,10 @@ class PayloadSensor : public Sensor
         {
             new_payload_ = *msg;
 
+            /*
             float payload_x = new_payload_.start_location[0];
             float payload_y = new_payload_.start_location[1];
-
             string raw_wp = "wp_" + to_string((int)payload_x) + to_string((int)payload_y) ;
-
             if(raw_wp == "wp_00")
             	raw_wp = "wp_equip";
             else if(raw_wp == "wp_06")
@@ -60,9 +59,10 @@ class PayloadSensor : public Sensor
             	raw_wp = "wp_seat";
             else if(raw_wp == "wp_66")
             	raw_wp = "wp_fuselage";
+            */
 
             payload_belief.params[0] = new_payload_.payload;
-            payload_belief.params[1] = raw_wp;
+            payload_belief.params[1] = new_payload_.start_location_name;
             sense(payload_belief, ADD);      
         }
 

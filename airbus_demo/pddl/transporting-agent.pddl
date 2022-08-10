@@ -58,6 +58,18 @@
         )
     )
 
+    (:durative-action wait_for_collaborators
+        :parameters (?r - robot ?r1 - robot ?r2 - robot)
+        :duration (= ?duration 30)
+        :condition (and
+        )
+        :effect (and
+            (at end (perform_this_job_with ?r1))
+            (at end (perform_this_job_with ?r2))
+            (at end (waited_for_collaborators ?r))
+        )
+    )
+
     (:durative-action pickup
         :parameters (?r - robot ?wp - waypoint ?p - payload ?t - tool)
         :duration (= ?duration 5)
@@ -65,12 +77,14 @@
             (at start (workfree ?r))
             (at start (payload_in ?p ?wp))
             (at start (free ?r))
+            (at start (waited_for_collaborators ?r))
             (over all (tool_required ?p ?t))
             (over all (tool_mounted ?r ?t))
             (over all (in ?r ?wp))
             (over all (> (battery_charge ?r) 10))
         )
         :effect (and
+            (at start (not(waited_for_collaborators ?r)))
             (at start (not(workfree ?r)))
             (at start (not(payload_in ?p ?wp)))
             (at start (not(free ?r)))
@@ -102,7 +116,7 @@
         :duration (= ?duration 10)
         :condition (and
             (at start (workfree ?r))
-            (at start (tool_mounted ?r ?t1))                               ; Is it necessary?
+            (at start (tool_mounted ?r ?t1))
             (over all (in ?r ?wp))
             (over all (tool_changing_station ?wp))
             (over all (> (battery_charge ?r) 10))

@@ -44,11 +44,6 @@
   params: 
     - "waypoint"
 -
-  name: "wp_03"
-  pddl_type: 1
-  params: 
-    - "waypoint"
--
   name: "wp_04"
   pddl_type: 1
   params: 
@@ -150,6 +145,11 @@
     - "waypoint"
 -
   name: "wp_35"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "wp_36"
   pddl_type: 1
   params: 
     - "waypoint"

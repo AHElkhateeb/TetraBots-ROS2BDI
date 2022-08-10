@@ -54,7 +54,7 @@ class TransportingAgentWPSensor : public Sensor
             	raw_wp = "wp_pipe";
             else if(raw_wp == "wp_20")
             	raw_wp = "wp_charge";
-            else if(raw_wp == "wp_36")
+            else if(raw_wp == "wp_03")
             	raw_wp = "wp_toolchange";
             else if(raw_wp == "wp_60")
             	raw_wp = "wp_seat";
