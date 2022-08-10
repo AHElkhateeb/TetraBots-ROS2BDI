@@ -18,17 +18,17 @@ using bridge_interfaces::msg::JobDefinition;
 
 using BDIManaged::ManagedBelief;
 
-class PayloadInSensor : public Sensor
+class PayloadShouldBeInSensor : public Sensor
 {
     public:
-        PayloadInSensor(const string& sensor_name, const Belief& proto_belief)
+        PayloadShouldBeInSensor(const string& sensor_name, const Belief& proto_belief)
         : Sensor(sensor_name, proto_belief, true, false)
         {
             robot_name_ = this->get_parameter("agent_id").as_string();
 
             OA_payload_subscriber_ = this->create_subscription<JobDefinition>("/ttb/central/transportJob", 
                 rclcpp::QoS(5).reliable(),
-                std::bind(&PayloadInSensor::jobReceivedCallback, this, _1));
+                std::bind(&PayloadShouldBeInSensor::jobReceivedCallback, this, _1));
             
             payload_belief = Belief();
             payload_belief.name = proto_belief.name;
@@ -36,6 +36,8 @@ class PayloadInSensor : public Sensor
             payload_belief.params = proto_belief.params;
             payload_belief.params[0] = "";
             payload_belief.params[1] = "";
+            payload_belief.params[2] = "";
+            payload_belief.params[3] = "";
         }
         
     private:
@@ -62,7 +64,9 @@ class PayloadInSensor : public Sensor
             */
 
             payload_belief.params[0] = new_payload_.payload;
-            payload_belief.params[1] = new_payload_.start_location_name;
+            payload_belief.params[1] = new_payload_.destination_location_name;
+            payload_belief.params[2] = new_payload_.team.required_tool[0];
+            payload_belief.params[3] = new_payload_.team.number_of_bots;
             sense(payload_belief, ADD);      
         }
 
@@ -76,8 +80,8 @@ int main(int argc, char ** argv)
 {
   rclcpp::init(argc, argv);
 
-  Belief b_proto = (ManagedBelief::buildMBPredicate("payload_in", {"", ""})).toBelief();
-  auto node = std::make_shared<PayloadInSensor>("payload_in_sensor", b_proto);
+  Belief b_proto = (ManagedBelief::buildMBPredicate("payload_should_be_in", {"", "", "", ""})).toBelief();
+  auto node = std::make_shared<PayloadShouldBeInSensor>("payload_should_be_in_sensor", b_proto);
   rclcpp::spin(node);
 
   rclcpp::shutdown();
