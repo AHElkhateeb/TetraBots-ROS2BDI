@@ -57,6 +57,15 @@ ament_target_dependencies(drop ${bdi_act_client_dep})
 add_executable(change_tool src/transporting_agent/actions/change_tool.cpp)
 ament_target_dependencies(change_tool ${bdi_act_client_dep})
 
+add_executable(moveto_cooperatively src/transporting_agent/actions/moveto_cooperatively.cpp)
+ament_target_dependencies(moveto_cooperatively ${bdi_act_client_dep})
+
+add_executable(drop_cooperatively src/transporting_agent/actions/drop_cooperatively.cpp)
+ament_target_dependencies(drop_cooperatively ${bdi_act_client_dep})
+
+add_executable(pickup_cooperatively src/transporting_agent/actions/pickup_cooperatively.cpp)
+ament_target_dependencies(pickup_cooperatively ${bdi_act_client_dep})
+
 #Sensors
 add_executable(battery_sensor src/transporting_agent/sensors/battery_sensor.cpp)
 ament_target_dependencies(battery_sensor ${sensors_dep})
@@ -81,9 +90,12 @@ ament_target_dependencies(payload_should_be_in_sensor ${sensors_dep})
 
 install(TARGETS
   moveto
+  moveto_cooperatively
   charge
   pickup
+  pickup_cooperatively
   drop
+  drop_cooperatively
   change_tool
   battery_sensor
   position_sensor
