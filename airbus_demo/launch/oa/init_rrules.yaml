@@ -7,17 +7,17 @@
 #               name: "payload_in"
 #               pddl_type: 2
 #               params:
-#                 - "{p_x}"
-#                 - "{wp_y}"
+#                 - "{payload_x}"
+#                 - "{wp_to}"
               
 #           - check: "T"
 #             condition_to_check:
 #               name: "payload_should_be_in"
 #               pddl_type: 2
 #               params:
-#                 - "{p_x}"
-#                 - "{t_x}"
-#                 - "{wp_y}"
+#                 - "{payload_x}"
+#                 - "{tool_x}"
+#                 - "{wp_to}"
               
 
 #   reactive_rules:
@@ -27,9 +27,9 @@
 #         name: "payload_should_be_in"
 #         pddl_type: 2
 #         params:
-#           - "{p_x}"
-#           - "{t_x}"
-#           - "{wp_y}"
+#           - "{payload_x}"
+#           - "{tool_x}"
+#           - "{wp_to}"
 - 
   condition:
     clauses:
@@ -39,17 +39,17 @@
               name: "payload_in"
               pddl_type: 2
               params:
-                - "{p_x}"
-                - "{wp_y}"
+                - "{payload_x}"
+                - "{wp_to}"
               
           - check: "T"
             condition_to_check:
               name: "payload_should_be_in"
               pddl_type: 2
               params:
-                - "{p_x}"
-                - "{wp_y}"
-                - "{t_x}"
+                - "{payload_x}"
+                - "{wp_to}"
+                - "{tool_x}"
                 - "{num_bots}"
               
 
@@ -61,10 +61,8 @@
         priority: 0.8
         deadline: 50.0
         value:
-          - name: "move_payload_to"
+          - name: "payload_in"                   # changed move_payload_to, I think it's redundant to payload_should_be_in
             pddl_type: 2
             params: 
-              - "{p_x}"
-              - "{wp_y}"
-              - "{t_x}"
-              - "{num_bots}"
+              - "{payload_x}"
+              - "{wp_to}"

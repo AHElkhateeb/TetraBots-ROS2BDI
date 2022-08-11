@@ -43,24 +43,6 @@ class PayloadInSensor : public Sensor
         {
             new_payload_ = *msg;
 
-            /*
-            float payload_x = new_payload_.start_location[0];
-            float payload_y = new_payload_.start_location[1];
-            string raw_wp = "wp_" + to_string((int)payload_x) + to_string((int)payload_y) ;
-            if(raw_wp == "wp_00")
-            	raw_wp = "wp_equip";
-            else if(raw_wp == "wp_06")
-            	raw_wp = "wp_pipe";
-            else if(raw_wp == "wp_20")
-            	raw_wp = "wp_charge";
-            else if(raw_wp == "wp_03")
-            	raw_wp = "wp_toolchange";
-            else if(raw_wp == "wp_60")
-            	raw_wp = "wp_seat";
-            else if(raw_wp == "wp_66")
-            	raw_wp = "wp_fuselage";
-            */
-
             payload_belief.params[0] = new_payload_.payload;
             payload_belief.params[1] = new_payload_.start_location_name;
             sense(payload_belief, ADD);      

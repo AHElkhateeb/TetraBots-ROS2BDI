@@ -45,28 +45,23 @@ class PayloadShouldBeInSensor : public Sensor
         {
             new_payload_ = *msg;
 
-            /*
-            float payload_x = new_payload_.start_location[0];
-            float payload_y = new_payload_.start_location[1];
-            string raw_wp = "wp_" + to_string((int)payload_x) + to_string((int)payload_y) ;
-            if(raw_wp == "wp_00")
-            	raw_wp = "wp_equip";
-            else if(raw_wp == "wp_06")
-            	raw_wp = "wp_pipe";
-            else if(raw_wp == "wp_20")
-            	raw_wp = "wp_charge";
-            else if(raw_wp == "wp_03")
-            	raw_wp = "wp_toolchange";
-            else if(raw_wp == "wp_60")
-            	raw_wp = "wp_seat";
-            else if(raw_wp == "wp_66")
-            	raw_wp = "wp_fuselage";
-            */
-
             payload_belief.params[0] = new_payload_.payload;
             payload_belief.params[1] = new_payload_.destination_location_name;
             payload_belief.params[2] = new_payload_.team.required_tool[0];
-            payload_belief.params[3] = new_payload_.team.number_of_bots;       //TO-DO: I expect an error here because passing an int to a string but it compiles fine for now
+            //TO-DO: Is this the correct way to assign a constant? Is a constant needed at all? (numeric values not possible as parameters ?)
+            switch(new_payload_.team.number_of_bots){
+                case 1:
+                    payload_belief.params[3] = "one";
+                    break;
+                case 2:
+                    payload_belief.params[3] = "two";
+                    break;
+                case 3:
+                    payload_belief.params[3] = "three";
+                    break;
+                default:
+                    payload_belief.params[3] = "one";
+            }
             sense(payload_belief, ADD);      
         }
 
