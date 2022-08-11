@@ -6,14 +6,14 @@
     if progress == 0
         picked_agents_ = select_rnd_agents(num)
         for all picked_agents_:
-            accepted, performed = sendBeliefUpd tool_required
-            accepted, performed = sendBeliefUpd payload_in (i.e. where it is now)
-            
+            accepted, performed = sendBeliefUpd (tool_required payload_x tool_x)
+            accepted, performed = sendBeliefUpd (payload_in wp_from)
+            accepted, performed = sendBeliefUpd (transport_cooperatively r r1 r2)
+
             if not accepted or not performed:
                 FAILURE
             else:
-                accepted, performed = sendDesireReq with value: 
-                    [payload_in (where it should go), ***something to say that you need to wait and do the job with others***]
+                accepted, performed = sendDesireReq with value: (payload_in wp_to)
                 if not accepted or not performed:
                     FAILURE
                     
