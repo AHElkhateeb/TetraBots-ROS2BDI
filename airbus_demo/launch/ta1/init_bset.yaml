@@ -304,3 +304,8 @@
   params: 
     - "ta1"
   value:  98
+-
+  name: "transport_alone"
+  pddl_type: 2 
+  params: 
+    - "ta1"
