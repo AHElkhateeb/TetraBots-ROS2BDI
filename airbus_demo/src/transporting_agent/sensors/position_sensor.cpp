@@ -43,8 +43,8 @@ class TransportingAgentWPSensor : public Sensor
         {
             position_status_ = *msg;
 
-            float x = position_status_.cor_pos_ori[0];
-            float y = position_status_.cor_pos_ori[1];
+            float x = position_status_.cor_pos_ori[0]/1000;
+            float y = position_status_.cor_pos_ori[1]/1000;
 
             string raw_wp = "wp_" + to_string((int)x) + to_string((int)y) ;
 
