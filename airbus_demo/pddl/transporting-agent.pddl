@@ -11,7 +11,8 @@
     (:predicates
         (in ?r - robot ?wp - waypoint)
         (payload_in ?p - payload ?wp - waypoint)
-        (transport_cooperatively ?leader ?r1 ?r2- robot)
+        (transport_alone ?r - robot)
+        (transport_cooperatively ?r ?r1 ?r2- robot)
         (tool_mounted ?r - robot ?t - tool)
         (tool_required ?p - payload ?t - tool)
         (holding ?r - robot ?p - payload)
@@ -32,6 +33,7 @@
         :condition (and
             (at start (in ?r ?wp_from))
             (at start (workfree ?r))
+            (over all (transport_alone ?r))
             (over all (> (battery_charge ?r) 10))
         )
         :effect (and
@@ -66,6 +68,7 @@
             (at start (workfree ?r))
             (at start (payload_in ?p ?wp))
             (at start (free ?r))
+            (over all (transport_alone ?r))
             (over all (tool_required ?p ?t))
             (over all (tool_mounted ?r ?t))
             (over all (in ?r ?wp))
@@ -86,6 +89,7 @@
         :condition (and
             (at start (workfree ?r))
             (at start (holding ?r ?p))
+            (over all (transport_alone ?r))
             (over all (in ?r ?wp))
             (over all (> (battery_charge ?r) 10))
         )
@@ -117,13 +121,13 @@
     )
 
     (:durative-action pickup_cooperatively
-        :parameters (?leader ?r1 ?r2 - robot ?wp - waypoint ?p - payload ?t - tool)
+        :parameters (?r ?r1 ?r2 - robot ?wp - waypoint ?p - payload ?t - tool)
         :duration (= ?duration 5)
         :condition (and
             (at start (workfree ?r))
             (at start (payload_in ?p ?wp))
             (at start (free ?r))
-            (over all (transport_cooperatively ?leader ?r1 ?r2))
+            (over all (transport_cooperatively ?r ?r1 ?r2))
             (over all (tool_required ?p ?t))
             (over all (tool_mounted ?r ?t))
             (over all (in ?r ?wp))
@@ -139,12 +143,12 @@
     )
 
     (:durative-action moveto_cooperatively
-        :parameters (?leader ?r1 ?r2 - robot ?wp_from ?wp_to - waypoint)
+        :parameters (?r ?r1 ?r2 - robot ?wp_from ?wp_to - waypoint)
         :duration (= ?duration 15)
         :condition (and
             (at start (in ?r ?wp_from))
             (at start (workfree ?r))
-            (over all (transport_cooperatively ?leader ?r1 ?r2))
+            (over all (transport_cooperatively ?r ?r1 ?r2))
             (over all (> (battery_charge ?r) 10))
         )
         :effect (and
@@ -157,12 +161,12 @@
     )
 
     (:durative-action drop_cooperatively
-        :parameters (?leader ?r1 ?r2 - robot ?wp - waypoint ?p - payload)
+        :parameters (?r ?r1 ?r2 - robot ?wp - waypoint ?p - payload)
         :duration (= ?duration 5)
         :condition (and
             (at start (workfree ?r))
             (at start (holding ?r ?p))
-            (over all (transport_cooperatively ?leader ?r1 ?r2))
+            (over all (transport_cooperatively ?r ?r1 ?r2))
             (over all (in ?r ?wp))
             (over all (> (battery_charge ?r) 10))
         )
@@ -171,7 +175,8 @@
             (at start (not(holding ?r ?p)))
             (at end (free ?r))
             (at end (workfree ?r))
-            (at end (not(transport_cooperatively ?leader ?r1 ?r2)))
+            (at end (not(transport_cooperatively ?r ?r1 ?r2)))
+            (at end (transport_alone ?r))
             (at end (payload_in ?p ?wp))
         )
     )

@@ -42,3 +42,24 @@
             pddl_type: 2 
             params: 
               - "ta1"
+- 
+  condition:
+    clauses:
+      - literals:
+          - check: "T"
+            condition_to_check:
+              name: "transport_cooperatively"
+              pddl_type: 2
+              params:
+                - "*"
+                - "*"
+                - "*"
+
+  reactive_rules:
+    - set: belief
+      operation: DEL
+      value:
+        name: "transport_alone"
+        pddl_type: 2
+        params:
+          - "*"
