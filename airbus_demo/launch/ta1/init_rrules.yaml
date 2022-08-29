@@ -62,4 +62,32 @@
         name: "transport_alone"
         pddl_type: 2
         params:
-          - "*"
+          - "ta1"
+- 
+  condition:
+    clauses:
+      - literals:
+          - check: "F"
+            condition_to_check:
+              name: "transport_cooperatively"
+              pddl_type: 2
+              params:
+                - "*"
+                - "*"
+                - "*"
+              
+          - check: "F"
+            condition_to_check:
+              name: "transport_alone"
+              pddl_type: 2
+              params:
+                - "*"
+              
+  reactive_rules:
+    - set: belief
+      operation: ADD
+      value:
+        name: "transport_alone"
+        pddl_type: 2
+        params:
+          - "ta1"

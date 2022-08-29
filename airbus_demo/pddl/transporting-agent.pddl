@@ -13,6 +13,7 @@
         (payload_in ?p - payload ?wp - waypoint)
         (transport_alone ?r - robot)
         (transport_cooperatively ?r ?r1 ?r2- robot)
+        (holding_cooperatively ?r ?r1 ?r2- robot ?p - payload)
         (tool_mounted ?r - robot ?t - tool)
         (tool_required ?p - payload ?t - tool)
         (holding ?r - robot ?p - payload)
@@ -21,6 +22,7 @@
         (free ?r - robot)
         (workfree ?r - robot)
         (fully_recharged ?r - robot)
+        (move_freely ?r - robot)
     )
 
     (:functions
@@ -33,7 +35,7 @@
         :condition (and
             (at start (in ?r ?wp_from))
             (at start (workfree ?r))
-            (over all (transport_alone ?r))
+            (at start (move_freely ?r))
             (over all (> (battery_charge ?r) 10))
         )
         :effect (and
@@ -138,7 +140,8 @@
             (at start (not(payload_in ?p ?wp)))
             (at start (not(free ?r)))
             (at end (workfree ?r))
-            (at end (holding ?r ?p))
+            (at end (not(move_freely ?r)))
+            (at end (holding_cooperatively ?r ?r1 ?r2 ?p))
         )
     )
 
@@ -149,6 +152,7 @@
             (at start (in ?r ?wp_from))
             (at start (workfree ?r))
             (over all (transport_cooperatively ?r ?r1 ?r2))
+            (over all (holding_cooperatively ?r ?r1 ?r2 ?p))
             (over all (> (battery_charge ?r) 10))
         )
         :effect (and
@@ -165,18 +169,18 @@
         :duration (= ?duration 5)
         :condition (and
             (at start (workfree ?r))
-            (at start (holding ?r ?p))
+            (at start (holding_cooperatively ?r ?r1 ?r2 ?p))
             (over all (transport_cooperatively ?r ?r1 ?r2))
             (over all (in ?r ?wp))
             (over all (> (battery_charge ?r) 10))
         )
         :effect (and
             (at start (not(workfree ?r)))
-            (at start (not(holding ?r ?p)))
             (at end (free ?r))
             (at end (workfree ?r))
+            (at end (move_freely ?r))
+            (at end (not(holding_cooperatively ?r ?r1 ?r2 ?p)))
             (at end (not(transport_cooperatively ?r ?r1 ?r2)))
-            (at end (transport_alone ?r))
             (at end (payload_in ?p ?wp))
         )
     )

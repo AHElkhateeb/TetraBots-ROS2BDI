@@ -105,7 +105,7 @@ class MoveTo : public BDIActionExecutor
             else if(wp_to == "wp_fuselage")
                 return {6500, 6500, 0.0, 0.0, 0.0, 0.0, 0.25, 0.60, 0.20, 10.0, 1.0, 50.0, 1.0, 45.0};
             else
-                return {(float)((wp_to[3] - 48)*1000 + 500), (float)((wp_to[4] - 48)*1000 + 500), 0.0, 0.0, 0.0, 0.0, 0.25, 0.60, 0.20, 10.0, 1.0, 50.0, 1.0, 45.0};
+                return {(float)((wp_to[3] - '0')*1000 + 500), (float)((wp_to[4] - '0')*1000 + 500), 0.0, 0.0, 0.0, 0.0, 0.25, 0.60, 0.20, 10.0, 1.0, 50.0, 1.0, 45.0};
         }
 
         rclcpp_lifecycle::LifecyclePublisher<TeamCommand>::SharedPtr move_transpoting_agent_cmd_publisher_;

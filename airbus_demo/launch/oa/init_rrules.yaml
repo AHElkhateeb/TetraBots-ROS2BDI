@@ -49,19 +49,19 @@
               params:
                 - "{payload_x}"
                 - "{wp_to}"
-                - "{tool_x}"
-                - "{num_bots}"
+                - "*"
+                - "*"
               
 
   reactive_rules:
     - set: desire
       operation: ADD
       value:
-        name: "transport_payload"
+        name: "transport_{payload_x}"
         priority: 0.8
         deadline: 50.0
         value:
-          - name: "payload_in"                   # changed move_payload_to, I think it's redundant to payload_should_be_in
+          - name: "payload_in"
             pddl_type: 2
             params: 
               - "{payload_x}"
