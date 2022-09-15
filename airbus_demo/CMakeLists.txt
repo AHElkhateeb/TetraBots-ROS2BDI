@@ -29,6 +29,7 @@ set(bdi_act_client_dep
   ros2_bdi_utils
   ros2_bdi_skills
   ros2_bdi_core
+  bridge_interfaces
 )
 
 set(sensors_dep
