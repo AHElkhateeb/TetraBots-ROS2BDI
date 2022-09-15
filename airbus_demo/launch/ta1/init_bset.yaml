@@ -34,32 +34,7 @@
   params: 
     - "waypoint"
 -
-  name: "wp_01"
-  pddl_type: 1
-  params: 
-    - "waypoint"
--
   name: "wp_02"
-  pddl_type: 1
-  params: 
-    - "waypoint"
--
-  name: "wp_04"
-  pddl_type: 1
-  params: 
-    - "waypoint"
--
-  name: "wp_05"
-  pddl_type: 1
-  params: 
-    - "waypoint"
--
-  name: "wp_10"
-  pddl_type: 1
-  params: 
-    - "waypoint"
--
-  name: "wp_11"
   pddl_type: 1
   params: 
     - "waypoint"
@@ -69,22 +44,7 @@
   params: 
     - "waypoint"
 -
-  name: "wp_13"
-  pddl_type: 1
-  params: 
-    - "waypoint"
--
-  name: "wp_14"
-  pddl_type: 1
-  params: 
-    - "waypoint"
--
-  name: "wp_15"
-  pddl_type: 1
-  params: 
-    - "waypoint"
--
-  name: "wp_16"
+  name: "wp_20"
   pddl_type: 1
   params: 
     - "waypoint"
@@ -109,21 +69,6 @@
   params: 
     - "waypoint"
 -
-  name: "wp_25"
-  pddl_type: 1
-  params: 
-    - "waypoint"
--
-  name: "wp_26"
-  pddl_type: 1
-  params: 
-    - "waypoint"
--
-  name: "wp_30"
-  pddl_type: 1
-  params: 
-    - "waypoint"
--
   name: "wp_31"
   pddl_type: 1
   params: 
@@ -140,16 +85,6 @@
     - "waypoint"
 -
   name: "wp_34"
-  pddl_type: 1
-  params: 
-    - "waypoint"
--
-  name: "wp_35"
-  pddl_type: 1
-  params: 
-    - "waypoint"
--
-  name: "wp_36"
   pddl_type: 1
   params: 
     - "waypoint"
@@ -179,16 +114,6 @@
   params: 
     - "waypoint"
 -
-  name: "wp_45"
-  pddl_type: 1
-  params: 
-    - "waypoint"
--
-  name: "wp_46"
-  pddl_type: 1
-  params: 
-    - "waypoint"
--
   name: "wp_50"
   pddl_type: 1
   params: 
@@ -214,16 +139,6 @@
   params: 
     - "waypoint"
 -
-  name: "wp_55"
-  pddl_type: 1
-  params: 
-    - "waypoint"
--
-  name: "wp_56"
-  pddl_type: 1
-  params: 
-    - "waypoint"
--
   name: "wp_61"
   pddl_type: 1
   params: 
@@ -244,7 +159,37 @@
   params: 
     - "waypoint"
 -
-  name: "wp_65"
+  name: "wp_70"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "wp_71"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "wp_72"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "wp_73"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "wp_74"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "wp_82"
+  pddl_type: 1
+  params: 
+    - "waypoint"
+-
+  name: "wp_92"
   pddl_type: 1
   params: 
     - "waypoint"
