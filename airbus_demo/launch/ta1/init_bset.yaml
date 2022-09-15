@@ -1,198 +1,159 @@
 -
   name: "ta1"
   pddl_type: 1
-  params: 
-    - "robot"
+  type: "robot"
 -
   name: "wp_pipe"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_equip"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_toolchange"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_charge"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_fuselage"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_seat"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_02"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_12"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_20"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_21"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_22"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_23"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_24"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_31"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_32"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_33"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_34"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_40"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_41"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_42"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_43"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_44"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_50"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_51"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_52"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_53"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_54"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_61"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_62"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_63"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_64"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_70"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_71"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_72"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_73"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_74"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_82"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "wp_92"
   pddl_type: 1
-  params: 
-    - "waypoint"
+  type: "waypoint"
 -
   name: "recharging_station"
   pddl_type: 2 

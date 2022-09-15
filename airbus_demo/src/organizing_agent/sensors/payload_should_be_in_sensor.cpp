@@ -17,6 +17,7 @@ using ros2_bdi_interfaces::msg::Belief;
 using bridge_interfaces::msg::JobDefinition;
 
 using BDIManaged::ManagedBelief;
+using BDIManaged::ManagedParam;
 
 class PayloadShouldBeInSensor : public Sensor
 {
@@ -75,7 +76,7 @@ int main(int argc, char ** argv)
 {
   rclcpp::init(argc, argv);
 
-  Belief b_proto = (ManagedBelief::buildMBPredicate("payload_should_be_in", {"", "", "", ""})).toBelief();
+  Belief b_proto = (ManagedBelief::buildMBPredicate("payload_should_be_in", {ManagedParam{"?p","payload"}, ManagedParam{"?wp","waypoint"}, ManagedParam{"?t","tool"}, ManagedParam{"?num","number"}})).toBelief();
   auto node = std::make_shared<PayloadShouldBeInSensor>("payload_should_be_in_sensor", b_proto);
   rclcpp::spin(node);
 

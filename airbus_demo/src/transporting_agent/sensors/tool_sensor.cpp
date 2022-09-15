@@ -16,6 +16,7 @@ using ros2_bdi_interfaces::msg::Belief;
 using bridge_interfaces::msg::BotStatus;
 
 using BDIManaged::ManagedBelief;
+using BDIManaged::ManagedParam;
 
 class ToolSensor : public Sensor
 {
@@ -60,7 +61,7 @@ int main(int argc, char ** argv)
 {
   rclcpp::init(argc, argv);
 
-  Belief b_proto = (ManagedBelief::buildMBPredicate("tool_mounted", {"", ""})).toBelief();
+  Belief b_proto = (ManagedBelief::buildMBPredicate("tool_mounted", {ManagedParam{"?r","robot"}, ManagedParam{"?t","tool"}})).toBelief();
   auto node = std::make_shared<ToolSensor>("tool_sensor", b_proto);
   rclcpp::spin(node);
 

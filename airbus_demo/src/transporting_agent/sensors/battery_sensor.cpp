@@ -16,6 +16,7 @@ using ros2_bdi_interfaces::msg::Belief;
 using bridge_interfaces::msg::BotStatus;
 
 using BDIManaged::ManagedBelief;
+using BDIManaged::ManagedParam;
 
 class BatterySensor : public Sensor
 {
@@ -60,7 +61,7 @@ int main(int argc, char ** argv)
 {
   rclcpp::init(argc, argv);
 
-  Belief b_proto = (ManagedBelief::buildMBFunction("battery_charge", {""}, 0)).toBelief();
+  Belief b_proto = (ManagedBelief::buildMBFunction("battery_charge", {ManagedParam{"?r","robot"}}, 0)).toBelief();
   auto node = std::make_shared<BatterySensor>("battery_sensor", b_proto);
   rclcpp::spin(node);
 
