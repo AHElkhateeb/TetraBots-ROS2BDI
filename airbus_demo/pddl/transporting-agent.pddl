@@ -146,7 +146,7 @@
     )
 
     (:durative-action moveto_cooperatively
-        :parameters (?r ?r1 ?r2 - robot ?wp_from ?wp_to - waypoint)
+        :parameters (?r ?r1 ?r2 - robot ?wp_from ?wp_to - waypoint ?p - payload)
         :duration (= ?duration 15)
         :condition (and
             (at start (in ?r ?wp_from))
