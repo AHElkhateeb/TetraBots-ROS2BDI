@@ -215,3 +215,8 @@
   pddl_type: 2 
   params: 
     - "ta1"
+-
+  name: "move_freely"
+  pddl_type: 2 
+  params: 
+    - "ta1"
