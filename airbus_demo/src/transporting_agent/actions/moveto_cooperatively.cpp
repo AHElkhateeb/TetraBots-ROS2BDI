@@ -17,7 +17,7 @@ class MoveToCooperatively : public BDIActionExecutor
 {
     public:
         MoveToCooperatively()
-        : BDIActionExecutor("transporting_agent_move", 4)
+        : BDIActionExecutor("moveto_cooperatively", 4)
         {
             robot_name_ = this->get_parameter("agent_id").as_string();
             move_transpoting_agent_cmd_publisher_ = this->create_publisher<TeamCommand>("/ttb/"+robot_name_+"/ext/teamCommand", 

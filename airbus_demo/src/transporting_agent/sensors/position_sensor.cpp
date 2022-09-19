@@ -78,7 +78,7 @@ int main(int argc, char ** argv)
   rclcpp::init(argc, argv);
 
   Belief b_proto = (ManagedBelief::buildMBPredicate("in", {ManagedParam{"?r","robot"}, ManagedParam{"?wp","waypoint"}})).toBelief();
-  auto node = std::make_shared<TransportingAgentWPSensor>("wp_sensor", b_proto);
+  auto node = std::make_shared<TransportingAgentWPSensor>("position_sensor", b_proto);
   rclcpp::spin(node);
 
   rclcpp::shutdown();

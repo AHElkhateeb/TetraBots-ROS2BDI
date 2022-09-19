@@ -5,7 +5,7 @@ class PickUpCooperatively : public BDIActionExecutor
 {
     public:
         PickUpCooperatively()
-        : BDIActionExecutor("pickup", 4)
+        : BDIActionExecutor("pickup_cooperatively", 4)
         {}
 
         float advanceWork()

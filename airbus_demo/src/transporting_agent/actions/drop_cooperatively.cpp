@@ -5,7 +5,7 @@ class DropCooperatively : public BDIActionExecutor
 {
     public:
         DropCooperatively()
-        : BDIActionExecutor("drop", 4)
+        : BDIActionExecutor("drop_cooperatively", 4)
         {}
 
         float advanceWork()
