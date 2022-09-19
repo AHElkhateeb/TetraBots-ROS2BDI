@@ -20,6 +20,13 @@ def generate_launch_description():
         name='moveto'
     )
 
+    # perform moving to cooperatively
+    moveto_cooperatively = AgentAction(
+        package='airbus_demo',
+        executable='moveto_cooperatively',
+        name='moveto_cooperatively'
+    )
+
     # perform charge
     charge = AgentAction(
         package='airbus_demo',
@@ -34,11 +41,25 @@ def generate_launch_description():
         name='pickup'
     )
 
+    # perform pickup_cooperatively
+    pickup_cooperatively = AgentAction(
+        package='airbus_demo',
+        executable='pickup_cooperatively',
+        name='pickup_cooperatively'
+    )
+
     # perform drop
     drop = AgentAction(
         package='airbus_demo',
         executable='drop',
         name='drop'
+    )
+
+    # perform drop_cooperatively
+    drop_cooperatively = AgentAction(
+        package='airbus_demo',
+        executable='drop_cooperatively',
+        name='drop_cooperatively'
     )
 
     # perform change_tool
@@ -79,7 +100,7 @@ def generate_launch_description():
             'init_reactive_rules_set': airbus_demo_share_dir + '/launch/ta1/init_rrules.yaml',
             'debug_log_active': ['belief_manager', 'scheduler', 'plan_director']
         },
-        actions=[moveto, charge, pickup, drop, change_tool],
+        actions=[moveto, moveto_cooperatively, charge, pickup, pickup_cooperatively, drop, drop_cooperatively, change_tool],
         sensors=[battery_sensor, position_sensor, tool_sensor],
         run_only_psys2=False
     ) 
