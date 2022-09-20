@@ -98,7 +98,7 @@ def generate_launch_description():
             'init_bset': airbus_demo_share_dir + '/launch/ta1/init_bset.yaml',
             'init_dset': airbus_demo_share_dir + '/launch/ta1/init_dset.yaml',
             'init_reactive_rules_set': airbus_demo_share_dir + '/launch/ta1/init_rrules.yaml',
-            'debug_log_active': ['belief_manager', 'scheduler', 'plan_director']
+            'debug_log_active': ['belief_manager', 'plan_director', 'event_listener']
         },
         actions=[moveto, moveto_cooperatively, charge, pickup, pickup_cooperatively, drop, drop_cooperatively, change_tool],
         sensors=[battery_sensor, position_sensor, tool_sensor],

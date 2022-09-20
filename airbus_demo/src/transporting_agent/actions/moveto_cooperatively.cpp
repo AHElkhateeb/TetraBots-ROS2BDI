@@ -13,7 +13,7 @@ using bridge_interfaces::msg::TeamCommand;
 using bridge_interfaces::msg::T265PosAndOri;
 using namespace std;
 
-class MoveToCooperatively : public BDIActionExecutor
+/*class MoveToCooperatively : public BDIActionExecutor
 {
     public:
         MoveToCooperatively()
@@ -115,6 +115,22 @@ class MoveToCooperatively : public BDIActionExecutor
         std::string robot_name_;
         std::string wp_from_;
         std::string wp_to_;
+};*/
+
+class MoveToCooperatively : public BDIActionExecutor
+{
+    public:
+        MoveToCooperatively()
+        : BDIActionExecutor("moveto_cooperatively", 4)
+        {}
+
+        float advanceWork()
+        {
+            //should implement here the step logic for your action, returning a value in [0-1] which specify the step progress
+            return 0.05f;            
+        }
+
+    private:
 };
 
 int main(int argc, char ** argv)
