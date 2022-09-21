@@ -70,19 +70,18 @@ class AskForTransportation : public BDIActionExecutor
                 BDICommunications::UpdDesireResult result[robots_num_];
                 for(int i = 0; i < robots_num_; i++)
                 {
-                    result0[i] = sendUpdBeliefRequest(robots_[i],buildPayloadInBelief(payload_,wp_from_),BDICommunications::ADD);
-                    result1[i] = sendUpdBeliefRequest(robots_[i],buildToolRequiredBelief(payload_,tool_required_),BDICommunications::ADD);
                     switch (robots_num_)
                     {
-                        case 1:
-                            result2[i] = sendUpdBeliefRequest(robots_[i],buildTransportCooperativelyBelief(robots_[i],"",""),BDICommunications::ADD);
-                            break;
                         case 2:
-                            result2[i] = sendUpdBeliefRequest(robots_[i],buildTransportCooperativelyBelief(robots_[i],robots_[(i+1)%2],""),BDICommunications::ADD);
+                            result0[i] = sendUpdBeliefRequest(robots_[i],buildTransportCooperativelyBelief(robots_[i],robots_[(i+1)%2],""),BDICommunications::ADD);
                             break;
                         case 3:
-                            result2[i] = sendUpdBeliefRequest(robots_[i],buildTransportCooperativelyBelief(robots_[i],robots_[(i+1)%3],robots_[(i+2)%3]),BDICommunications::ADD);
+                            result0[i] = sendUpdBeliefRequest(robots_[i],buildTransportCooperativelyBelief(robots_[i],robots_[(i+1)%3],robots_[(i+2)%3]),BDICommunications::ADD);
                     }
+                    
+                    result1[i] = sendUpdBeliefRequest(robots_[i],buildPayloadInBelief(payload_,wp_from_),BDICommunications::ADD);
+                    result2[i] = sendUpdBeliefRequest(robots_[i],buildToolRequiredBelief(payload_,tool_required_),BDICommunications::ADD);
+                    
                     if(result0[i].performed && result1[i].performed && result2[i].performed && result0[i].accepted && result1[i].accepted && result2[i].accepted)
                     {
                         requested_desire_ = buildDesire(payload_,wp_to_);

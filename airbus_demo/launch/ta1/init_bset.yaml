@@ -188,12 +188,12 @@
   params: 
     - "ta1"
     - "no_tool"
--
-  name: "payload_in"
-  pddl_type: 2 
-  params: 
-    - "seat"
-    - "wp_seat"
+#-
+#  name: "payload_in"
+#  pddl_type: 2 
+#  params: 
+#    - "seat"
+#    - "wp_seat"
 -
   name: "workfree"
   pddl_type: 2 
@@ -210,20 +210,20 @@
   params: 
     - "ta1"
   value:  98
-#-
-#  name: "transport_alone"
-#  pddl_type: 2 
-#  params: 
-#    - "ta1"
+-
+  name: "transport_alone"
+  pddl_type: 2 
+  params: 
+    - "ta1"
 -
   name: "move_freely"
   pddl_type: 2 
   params: 
     - "ta1"
--
-  name: "transport_cooperatively"
-  pddl_type: 2 
-  params: 
-    - "ta1"
-    - "ta2"
-    - "ta3"
+#-
+#  name: "transport_cooperatively"
+#  pddl_type: 2 
+#  params: 
+#    - "ta1"
+#    - "ta2"
+#    - "ta3"

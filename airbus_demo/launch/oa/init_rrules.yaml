@@ -27,7 +27,7 @@
       value:
         name: "transport_{payload_x}"
         priority: 0.8
-        deadline: 50.0
+        deadline: 250.0
         value:
           - name: "payload_in"
             pddl_type: 2

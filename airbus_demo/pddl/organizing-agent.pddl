@@ -5,14 +5,7 @@
         waypoint
         payload
         tool
-
         number
-    )
-
-    (:constants
-        one - number
-        two - number
-        three - number    
     )
 
     (:predicates
