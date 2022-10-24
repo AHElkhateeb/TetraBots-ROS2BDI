@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.5)
-project(Use_case)
+project(use_case)
 
 
 # Default to C++17
