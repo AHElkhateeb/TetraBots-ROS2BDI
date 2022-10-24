@@ -1,5 +1,5 @@
 -
-  name: "tetrabotALF"
+  name: "tetrabotDORIE"
   pddl_type: 1
   type: "robot"
 -
@@ -180,13 +180,13 @@
   name: "in"
   pddl_type: 2 
   params: 
-    - "tetrabotALF"
+    - "tetrabotDORIE"
     - "wp_54"
 -
   name: "tool_mounted"
   pddl_type: 2 
   params: 
-    - "tetrabotALF"
+    - "tetrabotDORIE"
     - "no_tool"
 #-
 #  name: "payload_in"
@@ -198,32 +198,32 @@
   name: "workfree"
   pddl_type: 2 
   params: 
-    - "tetrabotALF"
+    - "tetrabotDORIE"
 -
   name: "free"
   pddl_type: 2 
   params: 
-    - "tetrabotALF"
+    - "tetrabotDORIE"
 -
   name: "battery_charge"
   pddl_type: 3
   params: 
-    - "tetrabotALF"
+    - "tetrabotDORIE"
   value:  98
 -
   name: "transport_alone"
   pddl_type: 2 
   params: 
-    - "tetrabotALF"
+    - "tetrabotDORIE"
 -
   name: "move_freely"
   pddl_type: 2 
   params: 
-    - "tetrabotALF"
+    - "tetrabotDORIE"
 #-
 #  name: "transport_cooperatively"
 #  pddl_type: 2 
 #  params: 
-#    - "tetrabotALF"
+#    - "tetrabotDORIE"
 #    - "ta2"
 #    - "ta3"

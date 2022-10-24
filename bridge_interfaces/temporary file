@@ -3,15 +3,15 @@ source ~/ros1_msgs_ws/install_isolated/setup.bash
 sf
 source ~/tetrabot_ws/install/local_setup.bash
 source ~/bridge_ws/install/local_setup.bash 
-export ROS_MASTER_URI=http://192.168.188.34:11311
+export ROS_MASTER_URI=http://192.168.188.29:11311
 ros2 run ros1_bridge dynamic_bridge --bridge-all-topics
 
 
 sf
 source ~/tetrabot_ws/install/local_setup.bash
-ros2 topic pub /ttb/tetrabotCENTER/ext/teamCommand bridge_interfaces/msg/TeamCommand "command_name: 'Drive_to'
+ros2 topic pub /ttb/tetrabotALF/ext/teamCommand bridge_interfaces/msg/TeamCommand "command_name: 'Drive_to'
 command_wait_mode: ''
-bots_affected: 'tetrabotC3PO'
+bots_affected: 'tetrabotDORIE'
 command_identifier: ['Ros2-BDI']
 command_values: [200, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.60, 0.20, 10.0, 1.0, 50.0, 1.0, 45.0]
 command_strings: ['ON', 'NO_STOP', 'NO_ABORT_STOP']
@@ -24,11 +24,11 @@ report_goal_reached: false
 sn
 source ~/ros1_msgs_ws/install_isolated/setup.bash
 export ROS_MASTER_URI=http://192.168.188.34:11311
-rostopic pub /ttb/tetrabotCENTER/ext/teamCommand tetrabot/teamCommand "commandName: 'Drive_to'
+rostopic pub /ttb/tetrabotALF/ext/teamCommand tetrabot/teamCommand "commandName: 'Drive_to'
 commandWaitMode: ''
-botsAffected: 'tetrabotC3PO'
+botsAffected: 'tetrabotDORIE'
 commandIdentifier: ['Ros1-BDI']
-commandValues: [200, 0.0, 0.0, 0.0, 0.0, 0.0, 0.25, 0.60, 0.20, 10.0, 1.0, 50.0, 1.0, 45.0]
+commandValues: [1000, 2000, 0.0, 0.0, 0.0, 0.0, 0.25, 0.60, 0.20, 10.0, 1.0, 50.0, 1.0, 45.0]
 commandStrings: ['ON', 'NO_STOP', 'NO_ABORT_STOP']
 coordName: ''
 coordValues: [0]

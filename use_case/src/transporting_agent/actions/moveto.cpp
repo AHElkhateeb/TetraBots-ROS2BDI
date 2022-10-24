@@ -13,7 +13,7 @@ using bridge_interfaces::msg::TeamCommand;
 using bridge_interfaces::msg::T265PosAndOri;
 using namespace std;
 
-class MoveTo : public BDIActionExecutor
+/*class MoveTo : public BDIActionExecutor
 {
     public:
         MoveTo()
@@ -115,9 +115,9 @@ class MoveTo : public BDIActionExecutor
         std::string robot_name_;
         std::string wp_from_;
         std::string wp_to_;
-};
+};*/
 
-/*class MoveTo : public BDIActionExecutor
+class MoveTo : public BDIActionExecutor
 {
     public:
         MoveTo()
@@ -131,7 +131,7 @@ class MoveTo : public BDIActionExecutor
         }
 
     private:
-};*/
+};
 
 int main(int argc, char ** argv)
 {

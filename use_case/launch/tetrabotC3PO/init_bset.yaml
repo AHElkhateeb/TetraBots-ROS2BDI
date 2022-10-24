@@ -1,5 +1,5 @@
 -
-  name: "tetrabotALF"
+  name: "tetrabotC3PO"
   pddl_type: 1
   type: "robot"
 -
@@ -180,13 +180,13 @@
   name: "in"
   pddl_type: 2 
   params: 
-    - "tetrabotALF"
+    - "tetrabotC3PO"
     - "wp_54"
 -
   name: "tool_mounted"
   pddl_type: 2 
   params: 
-    - "tetrabotALF"
+    - "tetrabotC3PO"
     - "no_tool"
 #-
 #  name: "payload_in"
@@ -198,32 +198,32 @@
   name: "workfree"
   pddl_type: 2 
   params: 
-    - "tetrabotALF"
+    - "tetrabotC3PO"
 -
   name: "free"
   pddl_type: 2 
   params: 
-    - "tetrabotALF"
+    - "tetrabotC3PO"
 -
   name: "battery_charge"
   pddl_type: 3
   params: 
-    - "tetrabotALF"
+    - "tetrabotC3PO"
   value:  98
 -
   name: "transport_alone"
   pddl_type: 2 
   params: 
-    - "tetrabotALF"
+    - "tetrabotC3PO"
 -
   name: "move_freely"
   pddl_type: 2 
   params: 
-    - "tetrabotALF"
+    - "tetrabotC3PO"
 #-
 #  name: "transport_cooperatively"
 #  pddl_type: 2 
 #  params: 
-#    - "tetrabotALF"
+#    - "tetrabotC3PO"
 #    - "ta2"
 #    - "ta3"

@@ -8,7 +8,7 @@ from bdi_agent_skills import AgentAction
 from bdi_agent_skills import AgentSensor
 
 def generate_launch_description():
-    AGENT_ID = 'tetrabotALF'
+    AGENT_ID = 'tetrabotDORIE'
     AGENT_GROUP_ID = 'transporting_agents'
     ORGANIZING_AGENT_GROUP_ID = 'organizing_agents'
 
@@ -96,9 +96,9 @@ def generate_launch_description():
         agent_group=AGENT_GROUP_ID,
         init_params={
             'pddl_file': use_case_share_dir + '/pddl/transporting-agent.pddl',
-            'init_bset': use_case_share_dir + '/launch/tetrabotALF/init_bset.yaml',
-            'init_dset': use_case_share_dir + '/launch/tetrabotALF/init_dset.yaml',
-            'init_reactive_rules_set': use_case_share_dir + '/launch/tetrabotALF/init_rrules.yaml',
+            'init_bset': use_case_share_dir + '/launch/tetrabotDORIE/init_bset.yaml',
+            'init_dset': use_case_share_dir + '/launch/tetrabotDORIE/init_dset.yaml',
+            'init_reactive_rules_set': use_case_share_dir + '/launch/tetrabotDORIE/init_rrules.yaml',
             'belief_ck': [ORGANIZING_AGENT_GROUP_ID],   
             'belief_w':  [ORGANIZING_AGENT_GROUP_ID],   
             'desire_ck': [ORGANIZING_AGENT_GROUP_ID],   

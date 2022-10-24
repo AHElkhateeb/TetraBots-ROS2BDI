@@ -1,0 +1,22 @@
+#-
+#  name: "move_seat"
+#  priority: 0.5
+#  deadline: 250.0
+#  value:
+#    -
+#      name: "payload_in"
+#      pddl_type: 2
+#      params:
+#        - "seat"
+#        - "wp_fuselage"
+#-
+#  name: "stay_at_chargewp"
+#  priority: 0.2
+#  deadline: 250.0
+#  value:
+#    -
+#      name: "in"
+#      pddl_type: 2
+#      params:
+#        - "tetrabotDORIE"
+#        - "wp_charge"
