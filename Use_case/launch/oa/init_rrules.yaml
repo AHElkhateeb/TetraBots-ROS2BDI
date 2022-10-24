@@ -1,0 +1,36 @@
+- 
+  condition:
+    clauses:
+      - literals:
+          - check: "F"
+            condition_to_check:
+              name: "payload_in"
+              pddl_type: 2
+              params:
+                - "{payload_x}"
+                - "{wp_to}"
+              
+          - check: "T"
+            condition_to_check:
+              name: "payload_should_be_in"
+              pddl_type: 2
+              params:
+                - "{payload_x}"
+                - "{wp_to}"
+                - "*"
+                - "*"
+              
+
+  reactive_rules:
+    - set: desire
+      operation: ADD
+      value:
+        name: "transport_{payload_x}"
+        priority: 0.8
+        deadline: 250.0
+        value:
+          - name: "payload_in"
+            pddl_type: 2
+            params: 
+              - "{payload_x}"
+              - "{wp_to}"
