@@ -10,6 +10,7 @@ from bdi_agent_skills import AgentSensor
 def generate_launch_description():
     AGENT_ID = 'ta1'
     AGENT_GROUP_ID = 'transporting_agents'
+    ORGANIZING_AGENT_GROUP_ID = 'organizing_agents'
 
     airbus_demo_share_dir = get_package_share_directory('airbus_demo')
 
@@ -98,7 +99,12 @@ def generate_launch_description():
             'init_bset': airbus_demo_share_dir + '/launch/ta1/init_bset.yaml',
             'init_dset': airbus_demo_share_dir + '/launch/ta1/init_dset.yaml',
             'init_reactive_rules_set': airbus_demo_share_dir + '/launch/ta1/init_rrules.yaml',
-            'debug_log_active': ['belief_manager', 'plan_director', 'event_listener']
+            'belief_ck': [ORGANIZING_AGENT_GROUP_ID],   
+            'belief_w':  [ORGANIZING_AGENT_GROUP_ID],   
+            'desire_ck': [ORGANIZING_AGENT_GROUP_ID],   
+            'desire_w':  [ORGANIZING_AGENT_GROUP_ID],   
+            'desire_pr': [1.0],
+            'debug_log_active': ['scheduler', 'belief_manager', 'plan_director', 'event_listener']
         },
         actions=[moveto, moveto_cooperatively, charge, pickup, pickup_cooperatively, drop, drop_cooperatively, change_tool],
         sensors=[battery_sensor, position_sensor, tool_sensor],

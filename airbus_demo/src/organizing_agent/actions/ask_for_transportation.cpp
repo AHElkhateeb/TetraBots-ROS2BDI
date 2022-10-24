@@ -43,22 +43,18 @@ class AskForTransportation : public BDIActionExecutor
 {
     public:
         AskForTransportation()
-        : BDIActionExecutor("ask_for_transportation", 1) , robots_({"ta1", "ta2", "ta3", "ta4"})
+        : BDIActionExecutor("ask_for_transportation", 1, false) , robots_({"ta1", "ta2", "ta3", "ta4"})
         {//:parameters (?p - payload ?wp_from ?wp_to - waypoint ?t - tool ?num - number)
-            payload_ = getArguments()[0];
-            wp_from_ = getArguments()[1];
-            wp_to_ = getArguments()[2];
-            tool_required_ = getArguments()[3];
-
-            if (getArguments()[4] == "one") robots_num_ = 1;
-            else if (getArguments()[4] == "two") robots_num_ = 2;
-            else if (getArguments()[4] == "three") robots_num_ = 3;
-            else execFailed("Wrong number of robots is requested");
+            
         }
 
         float advanceWork()
         {
-            static int desires_sent = 0;
+            if(getProgress() == 0.0f)
+            {
+                initFromArguments();
+            }
+            
             float step_progress = 0.0;
             float action_progress = getProgress();
 
@@ -87,15 +83,15 @@ class AskForTransportation : public BDIActionExecutor
                         requested_desire_ = buildDesire(payload_,wp_to_);
                         result[i] = sendUpdDesireRequest(robots_[i], requested_desire_, BDICommunications::ADD, true);
                         if (result[i].desire.name == requested_desire_.name)
-                            desires_sent += (result[i].accepted && result[i].performed)? 1 : 0;
+                            desires_sent_ += (result[i].accepted && result[i].performed)? 1 : 0;
                         else
-                            execFailed("Couldn't add desire to transporting agent no. " + (i+1));
+                            execFailed("Couldn't add desire to transporting agent no. " + std::to_string(i+1));
                     }
                     else
-                        execFailed("Couldn't add beliefs to transporting agent no. " + (i+1));
+                        execFailed("Couldn't add beliefs to transporting agent no. " + std::to_string(i+1));
                 }
 
-                if(desires_sent == robots_num_)
+                if(desires_sent_ == robots_num_)
                     step_progress += 0.1;
                 else
                     execFailed("Couldn't add desire to enough transporting agents");
@@ -105,13 +101,13 @@ class AskForTransportation : public BDIActionExecutor
             else
             {
                 int desires_fulfilled_= 0;
-                for(int i = 0; i < desires_sent; i++)
+                for(int i = 0; i < robots_num_; i++)
                 {
                     if (isMonitoredDesireFulfilled(robots_[i], requested_desire_))
                     desires_fulfilled_++;
                 }
                 
-                if(desires_fulfilled_==desires_sent)
+                if(desires_fulfilled_==robots_num_)
                     execSuccess();
                 else
                     step_progress += 0.01; //desire request already made and should be finished within 88 seconds
@@ -121,6 +117,23 @@ class AskForTransportation : public BDIActionExecutor
         }
 
     private:
+
+        void initFromArguments()
+        {
+            if(getArguments().size() == 5)
+            {
+                desires_sent_ = 0;
+                payload_ = getArguments()[0];
+                wp_from_ = getArguments()[1];
+                wp_to_ = getArguments()[2];
+                tool_required_ = getArguments()[3];
+
+                if (getArguments()[4] == "one") robots_num_ = 1;
+                else if (getArguments()[4] == "two") robots_num_ = 2;
+                else if (getArguments()[4] == "three") robots_num_ = 3;
+                else execFailed("Wrong number of robots is requested");    
+            }
+        }
 
         Belief buildPayloadInBelief(const std::string& payload, const std::string& waypoint)
         {
@@ -153,7 +166,7 @@ class AskForTransportation : public BDIActionExecutor
         {
             auto desire = Desire();
             desire.name = "Transport_" + payload;
-            desire.deadline = 6.0;
+            desire.deadline = 150.0;
             desire.priority = 0.6;
             auto value = Belief();
             {
@@ -165,8 +178,7 @@ class AskForTransportation : public BDIActionExecutor
             return desire;
         }
 
-        float progress_;
-        float last_step_progress_;
+        int desires_sent_;
         
         Desire requested_desire_;
         std::string robots_[4];

@@ -20,6 +20,12 @@ def generate_launch_description():
         name='ask_for_transportation'
     )
 
+    # ask_for_transportation1 = AgentAction(
+    #     package='airbus_demo',
+    #     executable='ask_for_transportation',
+    #     name='ask_for_transportation1'
+    # )
+
     # sense payload_in_sensor
     payload_in_sensor = AgentSensor(
         package='airbus_demo',
@@ -44,7 +50,7 @@ def generate_launch_description():
             'init_reactive_rules_set': airbus_demo_share_dir + '/launch/oa/init_rrules.yaml',
             'debug_log_active': ['belief_manager', 'scheduler', 'plan_director']
         },
-        actions=[ask_for_transportation],
+        actions=[ask_for_transportation],#, ask_for_transportation1],
         sensors=[payload_in_sensor, payload_should_be_in_sensor],
         run_only_psys2=False
     ) 
