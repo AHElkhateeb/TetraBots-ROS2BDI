@@ -49,17 +49,17 @@ class TransportingAgentWPSensor : public Sensor
 
             string raw_wp = "wp_" + to_string((int)x) + to_string((int)y) ;
 
-            if(raw_wp == "wp_00" || raw_wp == "wp_10" || raw_wp == "wp_01" || raw_wp == "wp_11")
+            if(raw_wp == "wp_00")
             	raw_wp = "wp_equip";
-            else if(raw_wp == "wp_03" || raw_wp == "wp_04" || raw_wp == "wp_13" || raw_wp == "wp_14")
+            else if(raw_wp == "wp_09")
             	raw_wp = "wp_pipe";
             else if(raw_wp == "wp_60")
             	raw_wp = "wp_charge";
             else if(raw_wp == "wp_30")
             	raw_wp = "wp_toolchange";
-            else if(raw_wp == "wp_80" || raw_wp == "wp_90" || raw_wp == "wp_81" || raw_wp == "wp_91")
+            else if(raw_wp == "wp_90")
             	raw_wp = "wp_seat";
-            else if(raw_wp == "wp_83" || raw_wp == "wp_93" || raw_wp == "wp_84" || raw_wp == "wp_94")
+            else if(raw_wp == "wp_99")
             	raw_wp = "wp_fuselage";
 
             sense(current_wp_, DEL);

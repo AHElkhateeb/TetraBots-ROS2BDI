@@ -21,17 +21,28 @@ Payloads
 
 Cost Calculation
 	
-	init Distance = 0
-	init Toolchange = 0
-	init Battery = 0
+	DistanceBetween(wp1,wp2)
+	{
+		distance = sqrt((wp1_x-wp2_x)^2+(wp1_y-wp2_y)^2);
+		return distance;
+	}
 	
-	Distance_to_payload = sqrt((x1-x2)^2+(y1-y2)^2)
+	bool RequiredToolMounted;
+	bool EnoughBattery;
+	int Cost;
 	
-	if (!ToolMounted): Toolchange = Distance_to_wp_Toolchange + 10 + Distance_from_wp_Toolchange_to_payload
+	RequiredToolMounted = (ToolMounted == required_tool);
+	EnoughBattery = (Battery >= 30);
 	
-	if (Battery < 30): Battery = Distance_to_wp_Charge + 30 + Distance_from_wp_Charge_to_payload
+	if(RequiredToolMounted && EnoughBattery)
+		Cost= DistanceBetween(current_wp, payload);
+	else if(!EnoughBattery && RequiredToolMounted)
+		Cost= DistanceBetween(current_wp, wp_charge) + 30 + DistanceBetween(wp_charge, payload);
+	else if(!RequiredToolMounted && EnoughBattery)
+		Cost= DistanceBetween(current_wp, wp_Toolchange) + 10 + DistanceBetween(wp_Toolchange, payload);
+	else 
+		Cost= DistanceBetween(current_wp, wp_charge) + 30 + DistanceBetween(wp_charge, wp_Toolchange) + 10 + DistanceBetween(wp_Toolchange, payload);
 	
-	Cost = Distance + Toolchange + Battery
 
 Waypoints Locations
 
