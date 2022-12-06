@@ -1,0 +1,15 @@
+ros2 topic pub /oa/acl_msg ros2_bdi_interfaces/msg/AclMsg "performative: 'cfp'
+sender: 'oa'
+receiver: ['tetrabotALF', 'tetrabotBERT', 'tetrabotDORIE', 'tetrabotC3PO']
+reply_to: []
+content: 'transport seat_29 wp_seat wp_fuselage seat_tool two'
+language: ''
+encoding: ''
+ontology: ''
+protocol: 'fipa-contract-net'
+conversation_id: ''
+reply_with: ''
+in_reply_to: ''
+reply_by: 0.0
+"
+

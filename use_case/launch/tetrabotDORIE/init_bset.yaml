@@ -176,18 +176,6 @@
   params: 
     - "pipe"
     - "pipe_tool"
--
-  name: "in"
-  pddl_type: 2 
-  params: 
-    - "tetrabotDORIE"
-    - "wp_54"
--
-  name: "tool_mounted"
-  pddl_type: 2 
-  params: 
-    - "tetrabotDORIE"
-    - "no_tool"
 #-
 #  name: "payload_in"
 #  pddl_type: 2 
@@ -205,12 +193,6 @@
   params: 
     - "tetrabotDORIE"
 -
-  name: "battery_charge"
-  pddl_type: 3
-  params: 
-    - "tetrabotDORIE"
-  value:  98
--
   name: "transport_alone"
   pddl_type: 2 
   params: 
@@ -227,3 +209,21 @@
 #    - "tetrabotDORIE"
 #    - "ta2"
 #    - "ta3"
+-
+  name: "battery_charge"
+  pddl_type: 3
+  params: 
+    - "tetrabotDORIE"
+  value:  98
+-
+  name: "tool_mounted"
+  pddl_type: 2 
+  params: 
+    - "tetrabotDORIE"
+    - "no_tool"
+-
+  name: "in"
+  pddl_type: 2 
+  params: 
+    - "tetrabotDORIE"
+    - "wp_94"
