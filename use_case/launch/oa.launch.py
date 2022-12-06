@@ -48,7 +48,7 @@ def generate_launch_description():
             'init_bset': use_case_share_dir + '/launch/oa/init_bset.yaml',
             'init_dset': use_case_share_dir + '/launch/oa/init_dset.yaml',
             'init_reactive_rules_set': use_case_share_dir + '/launch/oa/init_rrules.yaml',
-            'debug_log_active': ['belief_manager', 'scheduler', 'plan_director']
+            'debug_log_active': []
         },
         actions=[ask_for_transportation],#, ask_for_transportation1],
         sensors=[payload_in_sensor, payload_should_be_in_sensor],

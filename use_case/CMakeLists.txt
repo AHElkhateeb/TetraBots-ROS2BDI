@@ -16,6 +16,7 @@ find_package(plansys2_executor REQUIRED)
 find_package(ros2_bdi_utils REQUIRED)
 find_package(ros2_bdi_interfaces REQUIRED)
 find_package(ros2_bdi_skills REQUIRED)
+find_package(ros2_bdi_behaviours REQUIRED)
 find_package(ros2_bdi_core REQUIRED)
 find_package(bridge_interfaces REQUIRED)
 
@@ -30,6 +31,7 @@ set(bdi_act_client_dep
   ros2_bdi_skills
   ros2_bdi_core
   bridge_interfaces
+  ros2_bdi_behaviours
 )
 
 set(sensors_dep

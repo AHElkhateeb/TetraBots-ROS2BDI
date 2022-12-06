@@ -104,7 +104,7 @@ def generate_launch_description():
             'desire_ck': [ORGANIZING_AGENT_GROUP_ID],   
             'desire_w':  [ORGANIZING_AGENT_GROUP_ID],   
             'desire_pr': [1.0],
-            'debug_log_active': ['scheduler', 'belief_manager', 'plan_director', 'event_listener']
+            'debug_log_active': []
         },
         actions=[moveto, moveto_cooperatively, charge, pickup, pickup_cooperatively, drop, drop_cooperatively, change_tool],
         sensors=[battery_sensor, position_sensor, tool_sensor],
